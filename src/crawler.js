@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
 async function crawlDomain(domain) {
   const url = domain.startsWith('http') ? domain : `https://${domain}`;
 
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: true, args: ['--no-sandbox'] });
   const page = await browser.newPage();
 
   try {
